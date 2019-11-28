@@ -1,0 +1,25 @@
+<ion-header>
+  <header-bar title="Intent"></header-bar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="action">
+        <ion-item *ngFor="let item of intentList index as i" (click)="selectItem(i)">
+          <ion-label>{{ item }}</ion-label>
+          <ion-radio slot="end" value="{{ item }}"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <div>
+      <p>return info:</p>
+      <h2></h2>
+    </div>
+    <div>
+      <p>response info:</p>
+      <h2></h2>
+    </div>
+
+    <ion-button (click)="sendIntent()">Send Intent</ion-button>
+</ion-content>

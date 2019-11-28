@@ -1,0 +1,40 @@
+{
+  "id": "org.elastos.trinity.dapp.intentdemo",
+  "version": "0.0.1",
+  "version_code": 1,
+  "name": "Intent Sender",
+  "short_name": "Intent Sender",
+  "short_description": "Demo for send intent",
+  "description": "Just for test intent.",
+  "start_url": "index.html",
+  "type": "file",
+  "category": "test",
+  "icons": [
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "author": {
+    "name": "",
+    "email": "",
+    "website": "https://www.elastos.org"
+  },
+  "default_locale": "en",
+  "plugins": [
+    "Clipboard",
+    "Device",
+    "SplashScreen",
+    "NetworkStatus"
+  ],
+  "urls": [],
+  "background_color": "#4e8ef7",
+  "theme_display": "show",
+  "theme_color": "#4e8ef7"
+}
