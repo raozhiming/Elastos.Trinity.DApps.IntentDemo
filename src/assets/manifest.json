@@ -7,7 +7,7 @@
   "short_description": "Demo for send intent",
   "description": "Just for test intent.",
   "start_url": "index.html",
-  "type": "file",
+  "type": "app",
   "category": "test",
   "icons": [
     {
