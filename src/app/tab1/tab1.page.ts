@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AppService } from '../services/appManager';
+declare let appManager: AppManagerPlugin.AppManager;
 
 @Component({
   selector: 'app-tab1',
@@ -39,10 +39,17 @@ export class Tab1Page {
     }, // dposvotetransaction
     {},
     {toAddress: 'Exxxxxxxxxxx', amount: 100, memo: 'just test momo'}, // pay
-    {elaaddress: {reason: " just test" }}, // walletaccess
+    // {elaaddress: {reason: " just test" }}, // walletaccess
+    // {elaamount: {reason: " just test" }, elaaddress: {reason: " just test" }}, // walletaccess
+    {
+        reqfields: [{
+            elaamount: {reason: " just test" },
+            elaaddress: {reason: " just test" }
+        }]
+    }, // walletaccess
   ];
 
-  constructor(private appManager: AppService) {}
+  constructor() {}
 
   selectItem(index) {
     this.index = index;
@@ -50,8 +57,9 @@ export class Tab1Page {
 
   sendIntent() {
     console.log('sendIntent');
-    this.appManager.sendIntent(this.action, this.parames[this.index], (ret) => {
-      this.info = JSON.stringify(ret);
+    appManager.sendIntent(this.action, this.parames[this.index], {}, (ret) => {
+        this.info = JSON.stringify(ret);
+        console.log('intent response:', ret);
     });
   }
 }

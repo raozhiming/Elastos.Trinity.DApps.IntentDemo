@@ -30,9 +30,6 @@ export class AppService {
         appManager.close();
     }
 
-    sendIntent(action, params, success) {
-        appManager.sendIntent(action, params, success);
-    }
     onReceive(ret) {
         console.log('AppManager receive message:' + ret.message + '. type: ' + ret.type + '. from: ' + ret.from);
     }
