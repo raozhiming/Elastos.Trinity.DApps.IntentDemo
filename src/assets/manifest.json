@@ -31,7 +31,8 @@
     "Clipboard",
     "Device",
     "SplashScreen",
-    "NetworkStatus"
+    "NetworkStatus",
+    "NotificationManagerPlugin"
   ],
   "urls": [],
   "background_color": "#4e8ef7",

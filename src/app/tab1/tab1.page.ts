@@ -49,7 +49,8 @@ export class Tab1Page {
     }, // walletaccess
   ];
 
-  constructor() {}
+  constructor() {
+  }
 
   selectItem(index) {
     this.index = index;

@@ -6,4 +6,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content class="ion-text-center">
+  <ion-button (click)="send()">Send Notification</ion-button>
+  <ion-input type="text" placeholder="key" [(ngModel)]="key"></ion-input>
+  <ion-input type="text" placeholder="title" [(ngModel)]="title"></ion-input>
+  <ion-input type="text" placeholder="url" [(ngModel)]="url"></ion-input>
+  <ion-input type="text" placeholder="emitter" [(ngModel)]="emitter"></ion-input>
+</ion-content>
