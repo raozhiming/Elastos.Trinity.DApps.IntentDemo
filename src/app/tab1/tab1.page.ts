@@ -38,7 +38,7 @@ export class Tab1Page {
       '03d55285f06683c9e5c6b5892a688affd046940c7161571611ea3a98330f72459f']
     }, // dposvotetransaction
     {},
-    {toAddress: 'Exxxxxxxxxxx', amount: 100, memo: 'just test momo'}, // pay
+    {receiver: 'Exxxxxxxxxxx', amount: 100, memo: 'just test momo'}, // pay
     // {elaaddress: {reason: " just test" }}, // walletaccess
     // {elaamount: {reason: " just test" }, elaaddress: {reason: " just test" }}, // walletaccess
     {

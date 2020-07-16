@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Storage
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <div>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size='2' class="cola">
+          <ion-avatar>
+            <img [src]=""/>
+          </ion-avatar>
+          <p>20:00:00</p>
+        </ion-col>
+        <ion-col class="colb">
+          <ion-row>
+            <p>title</p>
+          </ion-row>
+          <ion-row>
+            <p>message test</p>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-text-center">
+  <ion-button (click)="getall()">GetAll</ion-button>
+</ion-footer>

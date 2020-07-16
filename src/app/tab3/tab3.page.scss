@@ -1,1 +1,24 @@
 
+ion-grid {
+  width: 100%;
+
+  .cola {
+    background-color: red;
+    width:90%;
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .colb {
+    background: rgb(184, 206, 152)
+  }
+}
+
+
+
+ion-button {
+  width:90%;
+  font-size: 16px;
+}
