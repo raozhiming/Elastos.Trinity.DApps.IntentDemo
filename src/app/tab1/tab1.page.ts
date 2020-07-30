@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as moment from 'moment';
 
 declare let appManager: AppManagerPlugin.AppManager;
 
@@ -16,9 +17,9 @@ export class Tab1Page {
         'elawalletmnemonicaccess', 'pay', 'walletaccess'];
   public parames = [
     {toAddress: 'Exxxxxxxxxxx', message: 'hello! nice to meet u'}, // chat
-    {claims: [{
+    {claims: {
         email: true,
-      }]
+      }
     }, // credaccess
     {
         did: 'did:elastos:ixxxxxxxx',
@@ -50,6 +51,19 @@ export class Tab1Page {
   ];
 
   constructor() {
+      this.init();
+  }
+
+  init(){
+    let today     = moment(new Date());
+
+    let tomorrow  = moment(new Date()).add(1,'days');
+
+    let yesterday = moment(new Date()).add(-1, 'days').valueOf();
+
+    console.log('today:', today);
+    console.log('tomorrow:', tomorrow);
+    console.log('yesterday:', yesterday);
   }
 
   selectItem(index) {
@@ -57,7 +71,7 @@ export class Tab1Page {
   }
 
   sendIntent() {
-    console.log('sendIntent');
+    console.log('sendIntent parames:',  this.parames[this.index]);
     appManager.sendIntent(this.action, this.parames[this.index], {}, (ret) => {
         this.info = JSON.stringify(ret);
         console.log('intent response:', ret);
