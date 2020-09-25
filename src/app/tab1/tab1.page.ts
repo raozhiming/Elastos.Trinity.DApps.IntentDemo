@@ -13,9 +13,10 @@ export class Tab1Page {
   public info: string;
   public response: string;
   public action: string;
-  public intentList = ['chat', 'credaccess', 'crmemberregister', 'crmembervote', 'didtransaction', 'dposvotetransaction',
-        'elawalletmnemonicaccess', 'pay', 'walletaccess'];
+  public intentList = ['appidcredissue', 'chat', 'credaccess', 'crmemberregister', 'crmembervote', 'didtransaction', 'dposvotetransaction',
+        'elawalletmnemonicaccess', 'esctransaction', 'pay', 'pay ETHSC', 'pay TTECH','walletaccess', 'sethiveprovider', 'promptpublishdid'];
   public parames = [
+    {appinstancedid: 'did:elastos:iodCjExqz9vNR5mP4uL2rT3VkGKCsMpoKv'}, // wallet
     {toAddress: 'Exxxxxxxxxxx', message: 'hello! nice to meet u'}, // chat
     {claims: {
         email: true,
@@ -38,16 +39,29 @@ export class Tab1Page {
       '02a7a2fb2e95403b6c3b473b298fb975868d7a39dbffb91181ed4dd8cd85d87edb',
       '03d55285f06683c9e5c6b5892a688affd046940c7161571611ea3a98330f72459f']
     }, // dposvotetransaction
-    {},
-    {receiver: 'Exxxxxxxxxxx', amount: 100, memo: 'just test momo'}, // pay
+    {}, //elawalletmnemonicaccess
+    {
+        amount: 0.01,
+        payload: 'aaaaaaaaaaaaa'
+    }, //esctransaction
+    {receiver: 'Exxxxxxxxxxx'}, // pay default
+    {receiver: '0x0aD689150EB4a3C541B7a37E6c69c1510BCB27A4', amount: 0.01, memo: 'just test memo', currency: 'ELA/ETHSC'}, // pay ETHSC
+    {receiver: '0x8F723ec92F28a87c0A1d28d83210487B1af86e19', amount: 0.01, memo: 'just test memo', currency: 'ELAETHSC:TTECH--'}, // pay ETHSC
     // {elaaddress: {reason: " just test" }}, // walletaccess
     // {elaamount: {reason: " just test" }, elaaddress: {reason: " just test" }}, // walletaccess
     {
-        reqfields: [{
-            elaamount: {reason: " just test" },
-            elaaddress: {reason: " just test" }
-        }]
+        reqfields: {
+            elaamount: {reason: " ela amount test" },
+            elaaddress: {reason: " ela address test" },
+            ethaddress: {reason: " eth address test" }
+        }
     }, // walletaccess
+    {
+        address: "https://192.168.1.1:5000"
+    }, // sethiveprovider
+    {
+
+    }, // promptpublishdid
   ];
 
   constructor() {
@@ -55,15 +69,23 @@ export class Tab1Page {
   }
 
   init(){
-    let today     = moment(new Date());
+    // let today     = moment(new Date());
 
-    let tomorrow  = moment(new Date()).add(1,'days');
+    // let tomorrow  = moment(new Date()).add(1,'days');
 
-    let yesterday = moment(new Date()).add(-1, 'days').valueOf();
+    // let yesterday = moment(new Date()).add(-1, 'days').valueOf();
 
-    console.log('today:', today);
-    console.log('tomorrow:', tomorrow);
-    console.log('yesterday:', yesterday);
+    // console.log('today:', today);
+    // console.log('tomorrow:', tomorrow);
+    // console.log('yesterday:', yesterday);
+
+    let datestring = "2020-07-28 12:11:10";
+    let timestamp = moment(datestring).valueOf();
+    console.log('timestamp:', timestamp);
+
+    // console.log('current timestamp:', moment().valueOf());
+
+    // console.log('on day ago:', moment().add(-1, 'days').valueOf());
   }
 
   selectItem(index) {
@@ -72,9 +94,12 @@ export class Tab1Page {
 
   sendIntent() {
     console.log('sendIntent parames:',  this.parames[this.index]);
-    appManager.sendIntent(this.action, this.parames[this.index], {}, (ret) => {
+    appManager.sendIntent(this.action.split(' ')[0], this.parames[this.index], {}, (ret) => {
         this.info = JSON.stringify(ret);
         console.log('intent response:', ret);
+    },
+    (error) => {
+        console.log('sendIntent fail:', error);
     });
   }
 }

@@ -1,5 +1,6 @@
 {
   "id": "org.elastos.trinity.dapp.intentdemo",
+  "did": "did:elastos:iodCjExqz9vNR5mP4uL2rT3VkGKCsMpoKv",
   "version": "0.0.1",
   "version_code": 1,
   "name": "Intent Sender",
