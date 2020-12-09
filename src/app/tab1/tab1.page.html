@@ -6,7 +6,7 @@
     <ion-list>
       <ion-radio-group [(ngModel)]="action">
         <ion-item *ngFor="let item of intentList index as i" (click)="selectItem(i)">
-          <ion-label>{{ item }}</ion-label>
+          <ion-label>{{ getShortIntentName(item) }}</ion-label>
           <ion-radio slot="end" value="{{ item }}"></ion-radio>
         </ion-item>
       </ion-radio-group>

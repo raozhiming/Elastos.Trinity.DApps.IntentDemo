@@ -13,8 +13,22 @@ export class Tab1Page {
   public info: string;
   public response: string;
   public action: string;
-  public intentList = ['appidcredissue', 'chat', 'credaccess', 'crmemberregister', 'crmembervote', 'didtransaction', 'dposvotetransaction',
-        'elawalletmnemonicaccess', 'esctransaction', 'pay', 'pay ETHSC', 'pay TTECH','walletaccess', 'sethiveprovider', 'promptpublishdid'];
+  public intentList = [
+            'https://did.elastos.net/appidcredissue',
+            'chat',
+            'https://did.elastos.net/credaccess',
+            'https://wallet.elastos.net/crmemberregister',
+            'https://wallet.elastos.net/crmembervote',
+            'https://wallet.elastos.net/didtransaction',
+            'https://wallet.elastos.net/dposvotetransaction',
+            'https://wallet.elastos.net/elawalletmnemonicaccess',
+            'https://wallet.elastos.net/esctransaction',
+            'https://wallet.elastos.net/pay',
+            'https://wallet.elastos.net/pay ETHSC',
+            'https://wallet.elastos.net/pay TTECH',
+            'https://wallet.elastos.net/walletaccess',
+            'https://did.elastos.net/sethiveprovider',
+            'https://did.elastos.net/promptpublishdid'];
   public parames = [
     {appinstancedid: 'did:elastos:iodCjExqz9vNR5mP4uL2rT3VkGKCsMpoKv'}, // wallet
     {toAddress: 'Exxxxxxxxxxx', message: 'hello! nice to meet u'}, // chat
@@ -65,27 +79,6 @@ export class Tab1Page {
   ];
 
   constructor() {
-      this.init();
-  }
-
-  init(){
-    // let today     = moment(new Date());
-
-    // let tomorrow  = moment(new Date()).add(1,'days');
-
-    // let yesterday = moment(new Date()).add(-1, 'days').valueOf();
-
-    // console.log('today:', today);
-    // console.log('tomorrow:', tomorrow);
-    // console.log('yesterday:', yesterday);
-
-    let datestring = "2020-07-28 12:11:10";
-    let timestamp = moment(datestring).valueOf();
-    console.log('timestamp:', timestamp);
-
-    // console.log('current timestamp:', moment().valueOf());
-
-    // console.log('on day ago:', moment().add(-1, 'days').valueOf());
   }
 
   selectItem(index) {
@@ -101,5 +94,10 @@ export class Tab1Page {
     (error) => {
         console.log('sendIntent fail:', error);
     });
+  }
+
+  getShortIntentName(intentName: string) {
+    const lastIndex = intentName.lastIndexOf('/');
+    return intentName.substring(lastIndex + 1);
   }
 }
